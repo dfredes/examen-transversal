@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>escaner</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- menu principal 
+  <ion-card class="ion-text-center">
+  <ion-card-content>
+    <qrcode [qrdata]="'Your data string'" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
+  </ion-card-content>
+  </ion-card>-->
+  
+  <ion-button expand="block" class="ion-margin" (click)="startScan()">Empezar a Escanear</ion-button>
+
+  <ion-item *ngIf="scannedResult">
+    <ion-label class="ion-text-wrap">Resultado del Escaneo: {{scannedResult}} </ion-label>
+  </ion-item>
+
+</ion-content>
