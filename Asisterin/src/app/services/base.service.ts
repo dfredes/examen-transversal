@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { SQLiteObject } from '@awesome-cordova-plugins/sqlite';
+import { SQLite, SQLiteObject } from '@awesome-cordova-plugins/sqlite';
 import { AlertController, Platform } from '@ionic/angular';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject,Observable } from 'rxjs';
 import { Usuarios } from './usuarios';
 
 @Injectable({
@@ -11,7 +11,8 @@ export class BaseService {
 
   usuario: string ="CREATE TABLE IF NOT EXISTS usuario(id_usuario INTEGER PRIMARY KEY autoincrement, nombre VARCHAR(50) NOT NULL, clave VARCHAR(50) NOT NULL,  id_rol INTEGER NOT NULL, imagen BLOB, nombre_r VARCHAR(50), telefono INTEGER, correo VARCHAR(50), direccion VARCHAR(50));";
 
-  public database: SQLiteObject;
+  
+
 
 
 
@@ -21,9 +22,10 @@ export class BaseService {
   
   private isDBReady: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
-  constructor(private sqlite: SQLite, private platform: Platform, private alertController: AlertController) { 
+  constructor(private sqlite: SQLite, private platform: Platform, private alertController: AlertController,public database:SQLiteObject) { 
 
   }
+  
 
 
   async presentAlert(msj: string) {
