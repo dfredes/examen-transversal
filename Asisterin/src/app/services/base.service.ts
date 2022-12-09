@@ -23,7 +23,7 @@ export class BaseService {
   private isDBReady: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
   constructor(private sqlite: SQLite, private platform: Platform, private alertController: AlertController,public database:SQLiteObject) { 
-
+    this.crearBD();
   }
   
 
@@ -111,6 +111,8 @@ export class BaseService {
   
     })
   }
+
+  
   
 
 
