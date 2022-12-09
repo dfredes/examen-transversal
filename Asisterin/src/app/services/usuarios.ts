@@ -1,5 +1,4 @@
 export class Usuarios {
-
     id_usuario : any;
     nombre: any;
     clave: any;

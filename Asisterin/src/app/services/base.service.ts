@@ -4,6 +4,7 @@ import { AlertController, Platform } from '@ionic/angular';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Usuarios } from './usuarios';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -109,6 +110,14 @@ export class BaseService {
         //actualizo el observable
       this.listaUsuarios.next(items);
   
+    })
+  }
+
+  registrarUsuario(id_usuario, nombre, clave,id_rol) {
+    let data = [id_usuario,nombre, clave,id_rol];
+    return this.database.executeSql('INSERT or IGNORE INTO usuario(id_usuario,nombre,clave, id_rol) VALUES (?,?,?,?)', data).then(data2 => {
+      this.buscarUsuarios();
+      
     })
   }
 
